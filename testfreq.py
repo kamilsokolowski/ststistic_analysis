@@ -48,10 +48,15 @@ class Freq:
         x_2 = x_2 * 4 * M
         p = Freq.p_value(N, x_2)
         if p >= 0.01:
-            return True
+            return p, True
         else:
-            return False
+            return p,  False
 
     @staticmethod
     def p_value(N, x_2):
         return gammaincc(float(N)/2, x_2/2)
+
+
+#r = """1100100100001111110110101010001000100001011010001100001000110100110001001100011001100010100010111000"""
+
+#print(Freq.test(r, 10, len(r)))

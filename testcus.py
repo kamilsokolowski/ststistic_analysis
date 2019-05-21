@@ -48,9 +48,9 @@ class CuSum:
         z = CuSum.z_max(S_k)
         p = CuSum.p_value(n, z)
         if p < 0.01:
-            return False
+            return p, False
         else:
-            return True
+            return p, True
 
     @staticmethod
     def p_value(n, z):
@@ -78,3 +78,8 @@ class CuSum:
     def z_max(s_k):
         t = list(map(abs, s_k))
         return max(t)
+
+#r = """1100100100001111110110101010001000100001011010001100001000110100110001001100011001100010100010111000"""
+
+#print(CuSum.test(r, len(r), 0))
+

@@ -37,7 +37,7 @@ class Serial:
         v = [0] * 3
         for i in range(3):
             v[i] = [0] * (2**m)
-        for z in range (0,dlugosc_ciagu):
+        for z in range (0,3):
             ciag_testowany=[]
             for i in range (0,m):
                 ciag_testowany.append('0')
@@ -59,9 +59,9 @@ class Serial:
         pValue1= gammaincc(2**(dlugosc_ciagu-2),delta/2)
         pValue2= gammaincc(2**(dlugosc_ciagu-3),delta_kwadrat/2)
         if pValue1>=0.01 and pValue2>=0.01:
-            return True
+            return pValue1, True
         else:
-            return False
+            return pValue1, False
 
     @staticmethod
     def szukanie_ciagow(e,ct):
@@ -88,3 +88,9 @@ class Serial:
             m=m-1
             psi_tab[j]= psi
         return psi_tab
+
+
+#m=3
+#e="""1100100100001111110110101010001000100001011010001100001000110100110001001100011001100010100010111000"""
+#n=len(e)
+#print (Serial.test(m,n,e))

@@ -1,6 +1,5 @@
 from Crypto.Random import get_random_bytes
 from Crypto.Cipher import AES
-
 def my_xor(a, b):
     c = ''
     for i in range (0, len(a)):
@@ -13,7 +12,6 @@ def my_xor(a, b):
         if a[i] == '0' and b[i] == '0':
             c += '0'
     return c
-
 def tobits(s):
     result = ''
     for c in s:
@@ -41,9 +39,9 @@ def itobytes(t):
 def szyfrowanie_Aes(iv, p):
     key = get_random_bytes(16)
     cipher = AES.new(
-    	key, 
-    	AES.MODE_OFB, 
-    	iv
+        key,
+        AES.MODE_OFB,
+        iv
     )
     msg = iv + cipher.encrypt(p)
     return msg
